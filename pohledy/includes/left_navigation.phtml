@@ -1,0 +1,83 @@
+<div class="panel">
+  <a href="/main" class="logo">NotePlay</a>     
+  <ul class="navigation">
+        <li>
+            <a  href="/avatari">Interpreti</a>
+        </li>
+        <li >
+            <a  href="/zanry">Žánry</a>
+        </li>
+  </ul>
+
+
+  <?php
+    if(isset($currTrackName)) {
+  ?>
+      <div class="trackDetailsContainer">
+        <h3>
+          <?php echo $currTrackName; ?>
+        </h3>
+        <?php
+          if(isset($like) && $like == 0 && isset($this->data["prihlasenyUzivatel"]["id_u"])) {
+        ?>
+        <div>
+          <form class="formLike" method="post">
+            <input type="hidden" id="like" name="like">
+            <button class="like" type="submit"><img src= '/Content/images/like.png'></button>
+          </form>
+        </div>
+        <?php
+        }else if (isset($this->data["prihlasenyUzivatel"]["id_u"])){
+        ?>
+          <form class="formLike" method="post">
+            <input type="hidden" id="like" name="like">
+            <button class="like" type="submit"><img src= '/Content/images/likeWhite.png'></button>
+          </form>
+        <?php
+        } else {
+            echo "<br><br>";
+        }
+        ?>
+
+
+        <div>
+          <form class="formCmt" method="post">
+            <?php if (isset($prihlasenyUzivatel["id_u"])) { ?>
+              <input class="comment" type="text" id="comment" maxlength="99" name="comment" placeholder="comment..." required>
+              <button class="submitCmt" >Submit</button>
+            <?php } else { ?>
+              <input class="comment" type="text" id="comment" maxlength="99" name="comment" style="font-size: 13px" placeholder="Vyžadováno přihlášení" required>
+              <a href="/login"><button type="button" class="submitCmt" >Přihlásit se</button></a>
+            <?php } ?>
+          </form>
+        </div>
+
+    <div class="cmntContainer">
+        <?php
+            if (isset($komentare) && isset($prihlasenyUzivatel["id_u"])){
+                foreach ($komentare as $komentar) {   
+                    echo "<p>" . $komentar['komentar']; 
+                    if($komentar["id_u"] == $prihlasenyUzivatel["id_u"] || $prihlasenyUzivatel["typ_uctu"] == 3){
+                        ?>
+                          <a href="/<?= $this->data['control'] ?>/<?= $komentar['id_k'] ?>/odstranit"><button type="button"class="btnComment">Odstranit</button></a>
+                        <?php
+                      
+                    }
+                    echo "</p>";
+                }
+            } else if (isset($komentare)){
+                foreach ($komentare as $komentar) {   
+                    echo "<p>" . $komentar['komentar']; 
+                    echo "</p>";
+                }
+            }
+        ?>    
+    </div>
+
+
+    </div>
+    <?php
+    }
+    ?>
+
+</div>
