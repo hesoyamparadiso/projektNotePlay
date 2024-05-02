@@ -9,4 +9,5 @@
   }
   spl_autoload_register("nactiTridu");
 
+  Db::pripoj("localhost", "root", "", "noteplay");
 ?>
