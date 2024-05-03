@@ -1,3 +1,14 @@
 <div class="prihlaseni">
-      <a style="color: #78BB27"  href="/login">Log in</a>
+    <?php 
+      if ($prihlasenyUzivatel) { 
+        echo $prihlasenyUzivatel["usrname"]   
+    ?>
+        <a style="color: #78BB27" href="/logout">Log out</a>
+    <?php 
+      }else { ?>
+        <a style="color: #78BB27"  href="/login">Log in</a>
+      <?php     
+      } 
+      ?>
+
 </div>

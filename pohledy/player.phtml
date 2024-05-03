@@ -1,0 +1,15 @@
+﻿<div class="playerContainer">
+    <?php
+    if (isset($currTrack)) {
+    ?>
+        <audio class="player" id="playStop"controls autoplay>
+              <?php
+              echo "<source src=$currTrack type='audio/mpeg'>"
+              ?>
+              Your browser does not support the audio element
+        </audio>  
+    <?php
+    }
+    ?>
+</div>
+

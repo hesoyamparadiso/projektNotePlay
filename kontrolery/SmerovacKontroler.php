@@ -4,6 +4,7 @@ class SmerovacKontroler extends Kontroler {
   
 
   public function zpracuj($parametry) {
+      $spravceUzivatelu = new SpravceUzivatelu;
       $castiCesty = $this->parsujURL($parametry[0]);
       
       if (empty($castiCesty[0]))
@@ -22,7 +23,9 @@ class SmerovacKontroler extends Kontroler {
         $this->presmeruj("chyba"); 
         
       $this->kontroler->zpracuj($castiCesty); 
-        
+      $this->data["prihlasenyUzivatel"] 
+        = $spravceUzivatelu->vratPrihlasenehoUzivatele();
+      $this->data["zpravy"] = $this->vratZpravy();  
       $this->pohled = "rozlozeni";      
   }
   

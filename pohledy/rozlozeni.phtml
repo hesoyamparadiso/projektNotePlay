@@ -7,10 +7,16 @@
   ?>
 </head>
 <body>
+  <div class="popup">
+	<?php if(isset($zpravy["text"])) {?>
+		<span style="position: fixed; z-index: -1; color: #C0C0C0; bottom: 0; padding-top: 10px" ><?= $zpravy["text"] ?></span>
+	<?php } ?>
+  </div>
 
-<?php
-	$this->kontroler->vypisPohled(); 
-?>
+  <?php
+	  $this->kontroler->vypisPohled();
+	  $this->kontroler->vypisPlayer(); 
+  ?>
 
 </body>
 </html>

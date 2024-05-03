@@ -10,7 +10,40 @@ class SpravceMainu {
 
         return $skladbyDB;
     }
+
+    public function vratZdrojSkladby($id_s) {
+        $sqlDotaz = "
+            SELECT *
+            FROM skladby
+            WHERE id_s = ?
+        ";
+        $skladbaDB = Db::dotazJeden($sqlDotaz, [$id_s]);
+
+        return $skladbaDB["zdroj"]; 
+    }
     
+    public function vratNazevSkladby($id_s) {
+        $sqlDotaz = "
+            SELECT *
+            FROM skladby
+            WHERE id_s = ?
+        ";
+        $skladbaDB = Db::dotazJeden($sqlDotaz, [$id_s]);
+
+        return $skladbaDB["nazev"]; 
+    }
+
+    public function vratIDSkladby($id_s) {
+        $sqlDotaz = "
+            SELECT *
+            FROM skladby
+            WHERE id_s = ?
+        ";
+        $skladbaDB = Db::dotazJeden($sqlDotaz, [$id_s]);
+
+        return $skladbaDB["id_s"]; 
+    }
+
     public function prevedUdajeSkladebNaObjekty($skladbyDB, $pohled = '0') {
         $skladby = [];
             foreach ($skladbyDB as $skladba) {

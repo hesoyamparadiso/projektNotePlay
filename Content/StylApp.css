@@ -56,7 +56,9 @@ ul.navigation a:hover{
     margin-top: 30px;
     margin-left: 30px;
     border:  none;
+    background-color: #101010;
     color: white;
+    border-radius: 7%;
     display: inline-block;    
 }
 
@@ -66,6 +68,27 @@ ul.navigation a:hover{
     position: relative;
     bottom: 16px;
     border-radius: 7%;   
+}
+
+.zanrColor {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    bottom: 16px;
+    border-radius: 7%;
+}
+
+p.trackLabels {
+    overflow: hidden;
+    position: relative;
+    bottom: 28px;
+    font-size: 16px;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.trackLink {
+    text-decoration: none;
 }
 
 .prihlaseni {
@@ -94,7 +117,17 @@ ul.navigation a:hover{
     color: linear-gradient(to right, #78BB27, #39BA50);
 }
 
+.player {
+  position: fixed;
+  left: 40%;
+}
 
+.playerContainer {
+  position: fixed;
+  width: 50%;
+  margin: 0 auto;
+  bottom: 60px;
+}
 
 .return {
     text-decoration: none;
@@ -105,21 +138,3 @@ ul.navigation a:hover{
     margin-top: 15px;   
 }
 
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-    
-
-    
