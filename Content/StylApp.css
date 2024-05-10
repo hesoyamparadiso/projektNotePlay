@@ -405,5 +405,31 @@ form.form421 {
   bottom: 60px;
 }
 
+.formEditChoose {
+  background-color: #101010;
+  padding: 18% 18% 18% 18%;
+  width: 50%;
+  border-radius: 7%;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.formEditChoose li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.formEditChoose a {
+  display: block;
+  text-decoration: none;
+  padding: 3px 10px;
+  background: linear-gradient(to right, #78BB27, #39BA50);
+  color: black;
+  border-radius: 7%;
+}
+
+.formEditChoose a:hover {
+  background: linear-gradient(to right, #6ef01d, #78BB27);
+}
 
 
