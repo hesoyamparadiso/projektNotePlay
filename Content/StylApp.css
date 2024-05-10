@@ -300,6 +300,21 @@ form.form421 {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #09AA50;    
 }
+
+.link {
+    text-decoration: none;
+    color: #78BB27;
+    display: block;
+    margin-left: 80px;
+    margin-top: 10px;
+}
+
+.link2 {
+    text-decoration: none;
+    color: #78BB27;
+    display: block;
+    margin-top: 10px;
+}
    
 .return {
     text-decoration: none;

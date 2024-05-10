@@ -5,6 +5,12 @@
     ?>
         <a style="color: #78BB27" href="/logout">Log out</a>
     <?php 
+        if($prihlasenyUzivatel["typ_uctu"] == 3) {
+          echo "<a class=\"link\" href=\"/edit\">Editovat</a>";
+        }
+        if($prihlasenyUzivatel["typ_uctu"] == 2) {
+          echo "<a class=\"link2\" href=\"/nahrat\">Nahrát skladbu</a>";
+        }
       }else { ?>
         <a style="color: #78BB27"  href="/login">Log in</a>
       <?php     
