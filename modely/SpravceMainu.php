@@ -82,10 +82,22 @@ class SpravceMainu {
         
     }
 
-    public function prevedUdajeSkladebNaObjekty($skladbyDB, $pohled = '0') {
+    public function vratVyhledaneSkladby($search) {
+        $search = "%".$search."%";
+        $sqlDotaz = "
+            SELECT skladby.id_s, skladby.nazev, skladby.obrazek, skladby.zdroj, skladby.id_z, skladby.id_i, autori.ArtistName
+            FROM skladby, autori
+            WHERE skladby.id_i = autori.id_i AND autori.ArtistName LIKE ? OR skladby.id_i = autori.id_i AND skladby.nazev LIKE ? 
+        ";
+        $skladbyDB = Db::dotazVsechny($sqlDotaz, [$search, $search]);
+
+        return $skladbyDB;
+    }
+
+    public function prevedUdajeSkladebNaObjekty($skladbyDB, $pohled = '0', $searchMode = '0') {
         $skladby = [];
             foreach ($skladbyDB as $skladba) {
-                $skladby[] = new Skladba($skladba["id_s"], $skladba["nazev"], $skladba["obrazek"], $skladba["zdroj"], $skladba["id_z"], $skladba["id_i"], $skladba["ArtistName"], $pohled);
+                $skladby[] = new Skladba($skladba["id_s"], $skladba["nazev"], $skladba["obrazek"], $skladba["zdroj"], $skladba["id_z"], $skladba["id_i"], $skladba["ArtistName"], $pohled, $searchMode);
             
         }
         return $skladby;

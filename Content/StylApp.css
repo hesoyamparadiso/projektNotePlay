@@ -3,6 +3,24 @@ body {
     font-family: Arial, sans-serif;
     color: white; 
 }
+
+h2 {
+    color: white;
+    display: inline-block; 
+    padding-top: 10px;
+}
+
+h3 {
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+h4 {
+    color: white;
+    padding-left: 15px;
+    font-size: 15px;
+}
  
 ul.navigation li {
     display: block;
@@ -44,10 +62,92 @@ ul.navigation a:hover{
     display: block;
 }
 
-
 .contentContainer {
     padding-left: 250px;
     padding-top: 100px;
+}
+
+.trackDetailsContainer {
+    display: block;
+    background-color: #101010;
+    margin-top: 350px;
+    padding-bottom: 90%;
+    border-radius: 7%;
+    height: 18vh;
+    position: relative;
+}
+
+.trackDetailsContainer h3 {
+    margin-bottom: 3px;
+}
+
+.comment {
+    width: 88%;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: #1B1B1B;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-left: 8px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.submitCmt {
+    cursor: pointer;
+    border-radius: 5em;
+    color: black;
+    background: linear-gradient(to right, #78BB27, #39BA50);
+    border: 0;
+    font-family:  sans-serif;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    float: right;
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+
+.btnComment{
+    cursor: pointer;
+    border-radius: 10em;
+    color: black;
+    background: linear-gradient(to right, #78BB27, #39BA50);
+    border: 0;
+    font-family:  sans-serif;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 3px;
+    float: right;
+    margin-right: 25px;
+}
+
+.cmntContainer {
+    overflow: auto;
+    height: 120%;
+    display: block;
+    width: 90%;
+    color: white;
+    background-color: #1B1B1B;
+    position: relative;
+    margin-left: 10px;
+}
+
+.cmntContainer p {
+    margin-left: 10px;
+    font-size: 13px;
 }
 
 .icon {
@@ -223,7 +323,12 @@ form.form421 {
     color: linear-gradient(to right, #78BB27, #39BA50);
 }
 
+.logo:hover {
+  text-shadow:1px 1px 3px #7a7a7a, 1px 1px 7px #7a7a7a;
+}
+
 .like {
+    cursor: pointer;
     position: relative;
     width: 20px;
     height: 20px;
@@ -237,6 +342,40 @@ form.form421 {
     position: relative;
     width: 30px;
     height: 30px;
+}
+.searchBar {
+    position: absolute;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 80vh;
+    top: 50px;
+}
+
+.searchBar input {
+    height: 32px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+.searchBar button {
+  float: right;
+  margin-right: 16px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  margin-top: 2px;
+  width: 32px;
+  background-color: white;
+  position: relative;
+  right: 30px;
+  border-radius: 20px;
+}
+
+.searchBar img {
+    position: relative;
+    width: 26px;
+    height: 27px;
+    border-radius: 20px;
 }
 
 .player {
