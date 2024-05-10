@@ -44,6 +44,44 @@ class SpravceMainu {
         return $skladbaDB["id_s"]; 
     }
 
+    
+    public function pridejOblibeny($id_u, $id_s) {
+        $sqlDotaz = "
+            SELECT *
+            FROM oblibene_skladby
+            WHERE id_u = ? AND id_s = ? 
+        ";
+
+        $navratDB = Db::dotazVsechny($sqlDotaz, [$id_u, $id_s]);
+
+        if (empty($navratDB)){
+            $udaje["id_obl"] = $id_u . $id_s;
+            $udaje["id_u"] = $id_u;
+            $udaje["id_s"] = $id_s;
+
+            Db::vloz("oblibene_skladby", $udaje); 
+        }
+        else {
+            Db::odstran("oblibene_skladby", "id_obl", $id_u . $id_s);
+        }
+    }
+
+    public function vratLike($id_s, $id_u) {
+        $sqlDotaz = "
+            SELECT *
+            FROM oblibene_skladby
+            WHERE id_u = ? AND id_s = ? 
+        ";
+
+        $navratDB = Db::dotazVsechny($sqlDotaz, [$id_u, $id_s]);
+
+        if (empty($navratDB)) 
+            return 0;
+        else 
+            return 1;
+        
+    }
+
     public function prevedUdajeSkladebNaObjekty($skladbyDB, $pohled = '0') {
         $skladby = [];
             foreach ($skladbyDB as $skladba) {

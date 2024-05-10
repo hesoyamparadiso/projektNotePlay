@@ -34,6 +34,16 @@ class MainKontroler extends Kontroler {
         $this->presmeruj($url);
     }
 
+    if (isset($_POST["like"])) {
+        $spravceMainu->pridejOblibeny($this->data["prihlasenyUzivatel"]["id_u"], $this->data["currTrackID"]);
+        $url = "main/" . $this->data["currTrackID"];
+        $this->presmeruj($url);
+    }
+
+    if (isset($this->data["currTrackID"]) && isset($this->data["prihlasenyUzivatel"]["id_u"])) {
+        $this->data["like"] = $spravceMainu->vratLike($this->data["currTrackID"], $this->data["prihlasenyUzivatel"]["id_u"]);
+    }
+
    if ((isset($parametry[0]) && is_numeric($parametry[0]) == true) || !isset($parametry[0])){
       $skladbyDB = $spravceMainu->vratSkladbySJmenem();
     }
