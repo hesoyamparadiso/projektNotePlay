@@ -1,4 +1,4 @@
-<?php
+Ôªø<?php
 class SmerovacKontroler extends Kontroler {
   protected $kontroler; 
   
@@ -14,7 +14,7 @@ class SmerovacKontroler extends Kontroler {
       }
 
       $castNazvuKontroleru = 
-        $this->pomlckyDoVelbloudiNotace(array_shift($castiCesty)); //array_shift() odstranÌ a vr·tÌ prvnÌ prvek
+        $this->pomlckyDoVelbloudiNotace(array_shift($castiCesty)); //array_shift() odstran√≠ a vr√°t√≠ prvn√≠ prvek
       $tridaKontroleru = $castNazvuKontroleru . "Kontroler";
 
       if (file_exists("kontrolery/$tridaKontroleru.php"))

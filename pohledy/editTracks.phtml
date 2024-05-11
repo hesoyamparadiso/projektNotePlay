@@ -1,0 +1,68 @@
+﻿<?php
+    include 'includes/left_navigation.phtml';
+    include 'includes/top.phtml'; 
+?>
+
+<div class="contentContainer" style="color: white; margin-left: 50px">
+  <form class="formEdit" method="post" id="tracksForm" enctype="multipart/form-data">
+      <input type="hidden" name="id_s" 
+          value="<?= $track["id_s"] ?>">
+      <div>
+          <label for="nazev">Název</label>
+          <input type="text" name="nazev" id="nazev"
+          value="<?= $track["nazev"] ?>" required>
+      </div>
+      <div>
+          <label for="fileToUpload_skladba">Skladba</label>
+          <input type="file" name="fileToUpload_skladba" id="fileToUpload_skladba" required>
+      </div>
+      <div>
+          <label for="fileToUpload">Cover</label>
+          <input type="file" name="fileToUpload" id="fileToUpload" required>
+      </div>
+      <div class="nabidka">
+          <label for="id_i">Autor</label>
+          <select id="id_i" name="id_i" form="tracksForm" value="<?= $autorReturn["ArtistName"] ?>" required>
+          <?php foreach ($autori as $autor) { ?>
+            <option value=" <?= $autor["ArtistName"] ?>" <?php if($autor["ArtistName"] == $autorReturn["ArtistName"]) echo "selected"; ?> > <?= $autor["ArtistName"] ?> </option> 
+          <?php 
+          } ?> 
+          </select>
+      </div>
+      <div class="nabidka">
+          <label for="id_z">Žánr</label>
+          <select id="id_z" name="id_z" form="tracksForm" value="<?= $zanrReturn["nazev"] ?>" required>
+          <?php foreach ($zanry as $zanr) { ?>
+            <option value=" <?= $zanr["nazev"] ?>" <?php if($zanr["nazev"] == $zanrReturn["nazev"]) echo "selected"; ?> > <?= $zanr["nazev"] ?> </option> 
+          <?php 
+          } ?> 
+          </select>
+      </div>
+      <div>
+          <input type="submit" value="Uložit skladbu">
+      </div>
+  </form>
+
+
+
+
+
+  <?php 
+  foreach ($tracks as $track) { ?>
+      <p class="outputEdit" style="width: 80%">
+        <?= $track ?> 
+        <a href="/EditTracks/<?= $track->vratId() ?>/odstranit">Odstranit</a>
+        <a href="/EditTracks/<?= $track->vratId() ?>/editovat">Editovat</a>  
+      </p>
+  <?php } ?> 
+</div>
+
+
+   
+
+
+
+
+
+    
+

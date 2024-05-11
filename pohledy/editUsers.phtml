@@ -1,0 +1,72 @@
+﻿<?php
+    include 'includes/left_navigation.phtml';
+    include 'includes/top.phtml'; 
+?>
+
+<div class="contentContainer" style="color: white; margin-left: 50px">
+  <form class="formEdit" method="post" id="UsersForm">
+      <input type="hidden" name="id_u" 
+          value="<?= $user["id_u"] ?>">
+      <div>
+          <label for="name" >Jméno</label>
+          <input type="text" name="name" id="name"
+          value="<?= $user["name"] ?>" required>
+      </div>
+      <div>
+          <label for="surname">Přijmení</label>
+          <input type="text" name="surname" id="surname"
+          value="<?= $user["surname"] ?>" required>
+      </div>
+      <div>
+          <label for="usrname">Username</label>
+          <input   type="text" name="usrname" id="usrname"
+          value="<?= $user["usrname"] ?>" required>
+      </div>
+      <div>
+          <label for="mail">E-mail</label>
+          <input type="text" name="mail" id="mail"
+          value="<?= $user["mail"] ?>" required>
+      </div>
+      <div class="nabidka">
+          <label for="typ_uctu">Typ účtu</label>
+          <select id="typ_uctu" name="typ_uctu" form="UsersForm" value="<?= $typReturn ?>" required>
+          <?php foreach ($typy as $typ) { ?>
+            <option  <?php if($typ == $typReturn) echo "selected"; ?> > <?php 
+            if ($typ["typ_uctu"] == 1) echo"běžný uživatel";
+            else if ($typ["typ_uctu"] == 2) echo"interpret";
+            else if ($typ["typ_uctu"] == 3) echo"admin";
+            ?> </option> 
+          <?php 
+          } ?> 
+          </select>
+      </div>
+      <div class="nabidka">
+          <label for="id_um">Umělec pro správu</label>
+          <select id="id_um" name="id_um" form="UsersForm" value="<?= $umelecReturn["id_um"] ?>" required>
+          <?php foreach ($umelci as $umelec) { ?>
+            <option value="<?= $umelec["id_i"] ?>" <?php if($umelec["id_i"] == $umelecReturn["id_um"]) echo "selected"; ?> > <?= $umelec["id_i"] ?> </option> 
+
+          <?php 
+          } ?> 
+          </select>
+      </div>
+      <input type="submit" value="Uložit uživatele">
+  </form>
+  <?php foreach ($users as $user) { ?>
+      <p class="outputEdit">
+        <?= $user ?> 
+        <a href="/EditUsers/<?= $user->vratId() ?>/odstranit">Odstranit</a>
+        <a href="/EditUsers/<?= $user->vratId() ?>/editovat">Editovat</a>  
+      </p>
+  <?php } ?> 
+</div>
+
+
+   
+
+
+
+
+
+    
+

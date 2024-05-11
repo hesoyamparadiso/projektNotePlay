@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 class MainKontroler extends Kontroler {
   
   public function zpracuj($parametry) { 
@@ -55,7 +55,7 @@ class MainKontroler extends Kontroler {
         $this->presmeruj($url);
     }
     
-    /*vrátí 1 nebo 0 -> zda je aktualní skladba v oblibenych*/
+    /*vrÃ¡tÃ­ 1 nebo 0 -> zda je aktualnÃ­ skladba v oblibenych*/
     if (isset($this->data["currTrackID"]) && isset($this->data["prihlasenyUzivatel"]["id_u"])) {
         $this->data["like"] = $spravceMainu->vratLike($this->data["currTrackID"], $this->data["prihlasenyUzivatel"]["id_u"]);
     }

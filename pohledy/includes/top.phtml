@@ -1,4 +1,4 @@
-<div class="prihlaseni">
+﻿<div class="prihlaseni">
     <?php 
       if ($prihlasenyUzivatel) { 
         echo $prihlasenyUzivatel["usrname"]   
@@ -9,7 +9,7 @@
           echo "<a class=\"link\" href=\"/edit\">Editovat</a>";
         }
         if($prihlasenyUzivatel["typ_uctu"] == 2) {
-          echo "<a class=\"link2\" href=\"/nahrat\">Nahr�t skladbu</a>";
+          echo "<a class=\"link2\" href=\"/nahrat\">Nahrát skladbu</a>";
         }
       }else { ?>
         <a style="color: #78BB27"  href="/login">Log in</a>
@@ -19,7 +19,7 @@
 </div>
 
 <div class="searchBar">
-  <form action="/main"  method="post">
+  <form action="/main" method="post">
     <input type="text" placeholder="  Search..." name="search">
     <button type="submit"><img src= '/Content/images/lupa.png'></button>
   </form> 

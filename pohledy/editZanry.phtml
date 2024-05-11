@@ -1,0 +1,45 @@
+﻿<?php
+    include 'includes/left_navigation.phtml';
+    include 'includes/top.phtml'; 
+?>
+
+<div class="contentContainer" style="color: white; margin-left: 50px">
+  <form class="formEdit" method="post">
+      <input type="hidden" name="id_z" 
+          value="<?= $zanr["id_z"] ?>">
+      <div>
+          <label for="nazev">Název</label>
+          <input type="text" name="nazev" id="nazev"
+          value="<?= $zanr["nazev"] ?>" required>
+      </div>
+      <div>
+          <label for="barva">Barva ikony</label>
+          <input   type="text" name="barva" id="barva"
+          value="<?= $zanr["barva"] ?>" required>
+      </div>
+      <input type="submit" value="Uložit žánr">
+  </form>
+
+
+
+
+
+  <?php 
+  foreach ($zanry as $zanr) { ?>
+      <p class="outputEdit" style="width: 50%">
+        <?= $zanr ?> 
+        <a href="/EditZanry/<?= $zanr->vratId() ?>/odstranit">Odstranit</a>
+        <a href="/EditZanry/<?= $zanr->vratId() ?>/editovat">Editovat</a>  
+      </p>
+  <?php } ?> 
+</div>
+
+
+   
+
+
+
+
+
+    
+

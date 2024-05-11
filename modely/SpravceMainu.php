@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class SpravceMainu {
     public function vratSkladbySJmenem() {
         $sqlDotaz = "

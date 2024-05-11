@@ -1,0 +1,54 @@
+﻿<?php
+    include 'includes/left_navigation.phtml';
+    include 'includes/top.phtml'; 
+?>
+
+<div class="contentContainer" style="color: white; margin-left: 50px">
+  <form class="formEdit" method="post" style="width: 60%" enctype="multipart/form-data">
+      <input type="hidden" name="id_i" 
+          value="<?= $autor["id_i"] ?>">
+      <div>
+          <label for="jmeno">Jméno</label>
+          <input type="text" name="jmeno" id="jmeno"
+          value="<?= $autor["jmeno"] ?>" required>
+      </div>
+      <div>
+          <label for="prijmeni">Přijmení</label>
+          <input   type="text" name="prijmeni" id="prijmeni"
+          value="<?= $autor["prijmeni"] ?>" required>
+      </div>
+      <div>
+          <label for="ArtistName">Umělecké jméno</label>
+          <input   type="text" name="ArtistName" id="ArtistName"
+          value="<?= $autor["ArtistName"] ?>" required>
+      </div>
+      <div>
+          <label for="fileToUpload_avatar">Profilový obrázek</label>
+          <input type="file" name="fileToUpload_avatar" id="fileToUpload_avatar" required>
+      </div>
+      <input type="submit" value="Uložit autora">
+  </form>
+
+
+
+
+
+  <?php 
+  foreach ($autori as $autor) { ?>
+      <p class="outputEdit" style="width: 60%">
+        <?= $autor ?> 
+        <a href="/EditAutori/<?= $autor->vratId() ?>/odstranit">Odstranit</a>
+        <a href="/EditAutori/<?= $autor->vratId() ?>/editovat">Editovat</a>  
+      </p>
+  <?php } ?> 
+</div>
+
+
+   
+
+
+
+
+
+    
+
