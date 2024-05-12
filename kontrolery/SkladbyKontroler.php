@@ -31,31 +31,13 @@ class SkladbyKontroler extends Kontroler {
       $this->data["skladby"] = $skladby;
     }  
     
-    
     if (isset($parametry[1])) {
       $this->data["currTrack"] = "/Content/hudba/" . $spravceSkladeb->vratZdrojSkladby($parametry[1]);
       $this->data["currTrackName"] = $spravceMainu->vratNazevSkladby($parametry[1]);
       $this->data["currTrackID"] = $spravceMainu->vratIDSkladby($parametry[1]);
-        /*if(!isset($_SESSION["lastTrack"])==1) {
-
-        }else if($this->data["currTrack"] != $_SESSION["lastTrack"]) {
-
-          if (substr($parametry[0], 0, 1) == 'z') {
-            $this->data["currTrack"] = "/Content/hudba/" . $spravceSkladeb->vratZdrojSkladby($parametry[1]);
-            $this->data["currTrackName"] = $spravceMainu->vratNazevSkladby($parametry[1]);
-            $this->data["currTrackID"] = $spravceMainu->vratIDSkladby($parametry[1]);
-          }else {
-            $this->data["currTrack"] = "/Content/hudba/" . $spravceSkladeb->vratZdrojSkladby($parametry[1]);
-            $this->data["currTrackName"] = $spravceMainu->vratNazevSkladby($parametry[1]);
-            $this->data["currTrackID"] = $spravceMainu->vratIDSkladby($parametry[1]);
-          }
-        }*/
-    }  
-
-    if (isset($parametry[1])) {
       $_SESSION["lastTrack"] = "/Content/hudba/" . $spravceSkladeb->vratZdrojSkladby($parametry[1]);
       $_SESSION["lastTrackID"] = $parametry[1];
-    }
+    }  
       
     if(isset($this->data["currTrackID"]))
       $this->data["komentare"] = $spravceKomentaru->vratKomentare($this->data["currTrackID"]);
